@@ -1,17 +1,8 @@
-### Part of a Spork hack. See http://bit.ly/arY19y
-if Rails.env.test? && defined?(Spork) && Spork.using_spork?
-  initializer :after => :initialize_dependency_mechanism do
-    # Work around initializer in railties/lib/rails/application/bootstrap.rb
-  ActiveSupport::Dependencies.mechanism = :load
-  end
-end
-require File.expand_path('../boot', __FILE__)
-
+require File.expand_path('../boot',__FILE__)
 require 'rails/all'
-
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+Bundler.require(:defalt, Rails.env) if defined?(Bundler)
 
 module SampleApp
   class Application < Rails::Application
@@ -45,5 +36,13 @@ module SampleApp
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+### Part of a Spork hack. See http://bit.ly/arY19y
+#    if Rails.env.test? && defined?(Spork) && Spork.using_spork?
+       if Rails.env.test?
+            initializer :after => :initialize_dependency_mechanism do
+#           # Work around initializer in railties/lib/rails/application/bootstrap.rb
+            ActiveSupport::Dependencies.mechanism = :load
+            end
+    end
   end
 end

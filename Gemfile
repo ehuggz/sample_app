@@ -8,9 +8,10 @@ group :development do
 end
 
 group :test do
+  gem 'ZenTest'
   gem 'libnotify'
   gem 'rspec'
-  gem 'spork'
+  gem 'spork', '0.8.4'
   gem 'rb-fsevent'
   gem 'guard-spork'
 end
