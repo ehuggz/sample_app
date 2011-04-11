@@ -8,7 +8,11 @@ group :development do
 end
 
 group :test do
-  gem 'rspec', '2.0.0.beta.18'
+  gem 'libnotify'
+  gem 'rspec'
+  gem 'spork'
+  gem 'rb-fsevent'
+  gem 'guard-spork'
 end
 
 # Bundle edge Rails instead:

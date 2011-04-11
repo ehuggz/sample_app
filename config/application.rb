@@ -1,3 +1,10 @@
+### Part of a Spork hack. See http://bit.ly/arY19y
+if Rails.env.test? && defined?(Spork) && Spork.using_spork?
+  initializer :after => :initialize_dependency_mechanism do
+    # Work around initializer in railties/lib/rails/application/bootstrap.rb
+  ActiveSupport::Dependencies.mechanism = :load
+  end
+end
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
